@@ -12,6 +12,7 @@ from random import randrange
 from turtle import *
 
 from freegames import square, vector
+import random #Importar libreria random para elegir colores randomizados despues
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
@@ -57,6 +58,13 @@ def move():
     update()
     ontimer(move, 100)
 
+    if head != food: #Establecer la condición de que la vibora aun no se come la comida
+        if inside(food) == True:    #Establecer la condición de que la comida este dentro de los limites
+            vc = [-10,0,10]  #Vector para determinar los 3 valores posibles de "x" y de "y"
+            rd1 = random.choice(vc) #Elegir un elemento random del vector
+            rd2 = random.choice(vc) #Elegir un elemento random del vector
+            food.x = food.x + rd1 #Asignar una posicion random en x de la comida
+            food.y = food.y + rd2  #Asignar una posicion random en y de la comida
 
 setup(420, 420, 370, 0)
 hideturtle()
