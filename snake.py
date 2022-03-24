@@ -18,6 +18,13 @@ food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
 
+colors = ['green','Yellow','purple', 'pink', 'blue'] #Vector con los colores posibles
+c1 = 'red'
+c2 = 'red' #Se le asigno un mismo color a las dos variables. 
+while c1 == c2: #mientras ambas variales sean iguales, se le asiganrá un color random a cada uno tal que queden distintos. 
+    c1 = random.choice(colors)
+    c2 = random.choice(colors)
+
 
 def change(x, y):
     """Change snake direction."""
@@ -52,9 +59,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, c1)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, c2)
     update()
     ontimer(move, 100)
 
